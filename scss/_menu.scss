@@ -15,4 +15,26 @@
         background: #fff;
         @include easeOut;
     }
+
+    // Rotate Menu Button for effect of 'X'
+    &.close{
+        display:block; // I added this in order for the menu to rotate
+        transform: rotate(180deg);
+
+        // Now work on individual line to make the 'X'
+        .btn-line{
+            // Line 1 - Rotate
+            &:nth-child(1){
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            // Line 2 - hide
+            &:nth-child(2){
+                opacity: 0;
+            }
+            // Line 3 - Rotate
+            &:nth-child(3){
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
+    }
 }
