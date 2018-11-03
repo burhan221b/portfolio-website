@@ -1,6 +1,75 @@
-$primary-color: #444;
+@import 'config';
+
+*{
+    box-sizing: border-box;
+}
 
 body{
+    @include background;
     background-color: $primary-color;
     color: #fff;
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+}
+
+// Headings
+h1, h2, h3{
+    margin: 0;
+    font-weight: 400;
+    // attach class with '&'. This means that it won't look though each heading, instead only the ones that it's specifically attached to. 
+    &.lg-heading{
+        // 1 rem = 16px, 2 rem = 32px...so on. 6 = 96px
+        font-size: 6rem; 
+    }
+    &.sm-heading{
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+        // sass function lighten uses original color and then how much you want to lighten it.
+        // rgba is used to make the lighten transparent
+        background: rgba(lighten($primary-color, 2), 0.5);
+    }
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+header{
+    // Make header always stay on the top
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+}
+
+.text-secondary{
+    color: $secondary-color;
+}
+
+main{
+    padding: 4rem;
+    // we include icon
+    .icons{
+        margin-top: 1rem; 
+
+        a{
+            padding: 0.4rem;
+            
+            // we can include hover... same as a:hover
+            &:hover{
+                 color: $secondary-color;
+                 @include easeOut;
+            }
+        }
+    }
+    // Lower the main title
+    &#home{
+        overflow: hidden;
+        h1{
+            // vh good way to keep things relative. 100vh is whole thing, so 20vh takes up only 20% of the page.
+            margin-top: 20vh;
+        }
+    } 
 }
