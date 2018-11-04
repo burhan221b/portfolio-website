@@ -51,93 +51,92 @@
     &.show{
         visibility: visible;
     }
+}
+// 2 sides of the menu, Initial settings for both
+.menu-branding, .menu-nav{
+    display: flex; // use the flex properties
+    flex-flow: column wrap; // Each is a column
+    align-items: center; // the items will be centerd
+    justify-content: center; // the text will be justified, spread out.
+    float: left;
+    width: 50%; // each item takes up 50% of each side
+    height: 100vh; // takes up all viewport height
+    overflow: hidden; // Prevent scroll bars
+}
 
-    // 2 sides of the menu, Initial settings for both
-    .menu-branding, .menu-nav{
-        display: flex; // use the flex properties
-        flex-flow: column wrap; // Each is a column
-        align-items: center; // the items will be centerd
-        justify-content: center; // the text will be justified, spread out.
-        float: left;
-        width: 50%; // each item takes up 50% of each side
-        height: 100vh; // takes up all viewport height
-        overflow: hidden; // Prevent scroll bars
+// Work on Nav side of the menu
+.menu-nav{
+    margin: 0;
+    padding: 0;
+    background: darken($primary-color, 5);
+    list-style: none;
+    transform: translate3d(0, -100%, 0);
+    @include easeOut;
+
+    // When the show class is active
+    &.show{
+        // Slide in from top
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+// Working on the profile picture side
+.menu-branding{
+    background: $primary-color;
+    transform: translate3d(0, 100%, 0); // change from -100
+    @include easeOut;
+
+    // When the show class is active
+    &.show{
+        // Slide in from bottom
+        transform: translate3d(0, 0, 0);
     }
 
-    // Work on Nav side of the menu
-    .menu-nav{
-        margin: 0;
-        padding: 0;
-        background: darken($primary-color, 5);
-        list-style: none;
-        transform: translate3d(0, -100%, 0);
-        @include easeOut;
+    // Include the portrait for profile
+    .portrait{
+        width: 250px;
+        height: 250px;
+        background: $portrait-img;
+        border-radius: 50%; // makes circle
+        border: solid 3px $secondary-color; 
+    }
+}
 
-        // When the show class is active
-        &.show{
-            // Slide in from top
-            transform: translate3d(0, 0, 0);
-        }
+// Make the nav items apprear after show class has been added
+.nav-item{
+    transform: translate3d(600px, 0, 0);
+    @include easeOut;
+
+    // slide the text from right
+    &.show{
+        // this moves text from outside right to inside
+        transform: translate3d(0, 0, 0);
+        //we use forloop to help show a delay effect : bottom code
     }
 
-    // Working on the profile picture side
-    .menu-branding{
-        background: $primary-color;
-        transform: translate3d(0, 100%, 0); // change from -100
-        @include easeOut;
+    // current page
+    &.current > a{
+        color: $secondary-color;
+    }
+}
 
-        // When the show class is active
-        &.show{
-            // Slide in from bottom
-            transform: translate3d(0, 0, 0);
-        }
+// Links styles 
+.nav-link{
+    display: inline-block;
+    position: relative;
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding: 1rem, 0;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    @include easeOut;
 
-        // Include the portrait for profile
-        .portrait{
-            width: 250px;
-            height: 250px;
-            background: $portrait-img;
-            border-radius: 50%; // makes circle
-            border: solid 3px $secondary-color; 
-        }
+    // Create hover effect on the links
+    &:hover{
+        color: $secondary-color;
     }
 
-    // Make the nav items apprear after show class has been added
-    .nav-item{
-        transform: translate3d(600px, 0, 0);
-        @include easeOut;
-
-        // slide the text from right
-        &.show{
-            // this moves text from outside right to inside
-            transform: translate3d(0, 0, 0);
-            //we use forloop to help show a delay effect : bottom code
-        }
-
-        // current page
-        &.current > a{
-            color: $secondary-color;
-        }
-    }
-
-    // Links styles 
-    .nav-link{
-        display: inline-block;
-        position: relative;
-        font-size: 2rem;
-        text-transform: uppercase;
-        padding: 1rem, 0;
-        font-weight: 300;
-        color: #fff;
-        text-decoration: none;
-        @include easeOut;
-
-        // Create hover effect on the links
-        &:hover{
-            color: $secondary-color;
-        }
-
-    }
 }
 
 // this code is for the .nav-item .show
