@@ -113,6 +113,30 @@
             transform: translate3d(0, 0, 0);
             //we use forloop to help show a delay effect : bottom code
         }
+
+        // current page
+        &.current > a{
+            color: $secondary-color;
+        }
+    }
+
+    // Links styles 
+    .nav-link{
+        display: inline-block;
+        position: relative;
+        font-size: 2rem;
+        text-transform: uppercase;
+        padding: 1rem, 0;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+        @include easeOut;
+
+        // Create hover effect on the links
+        &:hover{
+            color: $secondary-color;
+        }
+
     }
 }
 
