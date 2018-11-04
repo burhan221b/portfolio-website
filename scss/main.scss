@@ -1,18 +1,19 @@
 // Import All other scss files into this file
 @import 'config';
 @import 'menu';
-@import 'mobile';
 
+
+// Initial Home Page Set Up
 *{
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    // margin: 0;
+    // padding: 0;
 }
 
 body{
     @include background;
     background-color: $primary-color;
-    color: #fff;
+    color: set-text-color($primary-color);
     height: 100%;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -53,8 +54,9 @@ header{
     color: $secondary-color;
 }
 
-main{
+main, #main-footer{
     padding: 4rem;
+    height: 100%;
     // we include icon
     .icons{
         margin-top: 1rem; 
@@ -78,3 +80,58 @@ main{
         }
     } 
 }
+
+// About Page 
+.about-info{
+    // using Grid formate, similar to flex
+    display: grid;
+    grid-gap: 30px;
+    // the below gives us visual of how its going to look with class names
+    grid-template-areas:
+    'bioimage bio bio'
+    'job1 job2 job3';
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.bio-image{
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 50%;
+    border: $secondary-color 3px solid;
+}
+.bio{
+    grid-area: bio;
+    font-size: 1.5rem;
+}
+.job-1{
+    grid-area: job1
+}
+.job-2{
+    grid-area: job2
+}
+.job-3{
+    grid-area: job3
+}
+.job{
+    background: lighten($primary-color, 5);
+    padding: 0.5rem;
+    border-bottom: $secondary-color 5px solid;
+
+    h3, h6{
+        text-align: center;
+    }
+}
+
+// Footer
+#main-footer, #main-footer > main{
+    text-align: center;
+    padding: 1rem;
+    background: darken($primary-color, 10);
+    color: set-text-color($primary-color);
+    height: 100%;
+    // height: 60px;
+}
+
+
+// We Place the Mobile at the bottom
+@import 'mobile';
