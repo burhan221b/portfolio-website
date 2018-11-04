@@ -75,6 +75,9 @@
 
 // Mobile
 @include mediaSm{
+    main{
+        min-height: calc(100vh - 450px);
+    }
     main#home h1{ 
         margin-top: 10vh;
     }
@@ -84,11 +87,31 @@
         grid-template-columns: 1fr;
     }
 
-    // icons
-    footer#main-footer i.fab{
-        display:block;
-        font-size: 4rem;
-        padding-bottom: 1rem;
+    // Contact Page
+    #contact{
+        h1.lg-heading{
+            font-size: 4rem;
+        }
+    }
 
+    // icons
+    footer#main-footer{
+        height: 450px;
+        // padding-top: 50px;
+        div.icons a{
+            display: block;
+            width: 100%;
+            padding: 2rem 0;
+            border-bottom: 2px $secondary-color solid;
+        }
+        i.fab{
+            // display:block;
+            font-size: 4rem;
+        }
+        div#copyright{
+            position: relative;
+            display:block;
+            margin-top: 12px;
+        }
     }
 }
