@@ -79,7 +79,7 @@
         min-height: calc(100vh - 450px);
     }
     main#home h1{ 
-        margin-top: 10vh;
+        margin-top: 30vh;
     }
 
     // Work Page
@@ -91,6 +91,7 @@
     #contact{
         h1.lg-heading{
             font-size: 4rem;
+            margin-top: 10vh;
         }
     }
 
@@ -114,4 +115,89 @@
             margin-top: 12px;
         }
     }
-}
+    }
+
+
+    @include mediaXs{
+        #bg-img-contact,#bg-img-about,#bg-img-work{
+            div.menu-btn{
+                margin-top: -16vh;
+            }
+        }
+
+        main{
+            min-height: calc(100vh - 450px);
+            height: 100%;
+            margin: 0;
+            padding: 0;
+
+            div.icons{
+                visibility: hidden;
+            }
+        }
+        main#home h1{ 
+            margin-top: 15vh;
+        }
+    
+        // Work Page
+        .projects{
+            grid-template-columns: 1fr;
+        }
+    
+        // Contact Page
+
+        #bg-img-contact{
+            div.menu-btn{
+                margin-top: -16vh;
+            }
+        }
+        #contact{
+            h1.lg-heading{
+                font-size: 3rem;
+                margin-top: 15vh;
+            }
+
+            .boxes{
+            
+                div{
+                    font-size: 1rem;
+                    border: 1px #fff solid;
+                    padding: 0.5rem 0.9rem;
+                    margin-bottom: 3rem;
+                    @include easeOut;
+            
+                    // hover effect
+                    &:hover{
+                        padding: 0.2rem 0.5rem;
+                        background: $secondary-color;
+                        color: set-text-color($secondary-color);
+            
+                        span{
+                            color: set-text-color($secondary-color);
+                        }
+                    }
+                }
+            }
+        }
+    
+        // icons
+        footer#main-footer{
+            height: 450px;
+            // padding-top: 50px;
+            div.icons a{
+                display: block;
+                width: 100%;
+                padding: 2rem 0;
+                border-bottom: 1px $secondary-color solid;
+            }
+            i.fab{
+                // display:block;
+                font-size: 2rem;
+            }
+            div#copyright{
+                position: relative;
+                display:block;
+                margin-top: 12px;
+            }
+        }
+        }
