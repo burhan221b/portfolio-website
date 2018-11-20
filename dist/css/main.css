@@ -153,6 +153,8 @@ h1, h2, h3 {
 a {
   color: #fff;
   text-decoration: none; }
+  a.check-out {
+    text-decoration: underline; }
   a.check-out:hover {
     color: #088020;
     transition: all 0.5s ease-out; }
